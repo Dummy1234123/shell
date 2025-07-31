@@ -43,6 +43,44 @@ void count(int x){
     std::cout << std::endl;
 }
 
+int eval(std::string expression){
+    // Placeholder for evaluation logic
+    int size = expression.size();
+    int nums[2];
+    char op;
+    int index = 0;
+    std::string temp = "";
+    for(int i = 0; i < size; i++){
+        if(isdigit(expression[i])){
+                temp += expression[i];
+        }else{
+                nums[index] = std::stoi(temp);
+                temp = "";
+                op = expression[i];
+                index++;
+            }
+
+        }
+        nums[index] = std::stoi(temp); // Last number
+        if(op == '+'){
+            return nums[0] + nums[1];
+        }
+        if(op == '-'){
+            return nums[0] - nums[1];
+        }
+        if(op == '*'){
+            return nums[0] * nums[1];
+        }
+        if(op == '/'){
+            if(nums[1] == 0){
+                std::cout << "Error: Division by zero!" << std::endl;
+                return 0;
+            }
+            return nums[0] / nums[1];
+        }
+    return 0; // Return 0 if no valid operation is found
+}
+
 
 int main() {
     std::cout << "Welcome to the Shell program!" << std::endl;
@@ -56,9 +94,6 @@ int main() {
         if(token == "exit"){running = false;}
 
         //evaluate the expression if the user types "eval"
-        else if(token == "eval"){std::cout << "Under construction" << std::endl;}
-        // Print "Hello, World!" if the user types "hello"
-        // If an argument is provided, greet the user with that name
         else if(token == "hello"){
             if(token.empty()){
                 std::cout << "Hello, World!" << std::endl;
@@ -97,6 +132,8 @@ int main() {
 
         else if(token== "fireball"){
             std::cout<< "You cast a fireball at: " << std::get<std::string>(argument) <<std::endl;
+        }else if(token == "eval"){
+            std::cout << eval(std::get<std::string>(argument)) << std::endl;
         }
 
 
@@ -110,7 +147,7 @@ int main() {
             std::cout << "print (message) - Print the specified message" << std::endl;
             std::cout << "clear - Clear the console" << std::endl;
             std::cout << "exit - Exit the program" << std::endl;
-            std::cout << "eval - Evaluate an expression (under construction)" << std::endl;
+            std::cout << "eval('expression (such as '2+2'. Does not take multiple operations)') - Evaluate an expression." << std::endl;
             std::cout << "fireball(target) - Cast a fireball at the specified target" << std::endl;
             std::cout << "help - Show this help message" << std::endl;
         }
