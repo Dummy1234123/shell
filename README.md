@@ -15,7 +15,7 @@ This is a custom shell (command line interface) with playful features like casti
 - 🔥 `fireball(target)` – Cast a fireball at the target  
 - 🧽 `clear()` – Clear the console  
 - ❌ `exit()` – Exit the program  
-- ➕ `eval()` – Evaluate a math expression *(coming soon)*  
+- ➕ `eval()` – Evaluate a math expression  
 - 🏫 `help()` – Show all available commands  
 
 ---
