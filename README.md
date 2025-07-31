@@ -22,7 +22,6 @@ This is a custom shell (command line interface) with playful features like casti
 
 ## 🛠 Planned Features
 
-- [ ] Finish the `eval()` function  
 - [ ] Add support for multiple arguments  
 - [ ] Maybe include a mini-game like Snake 🐍  
 
